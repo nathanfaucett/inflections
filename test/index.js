@@ -4,11 +4,10 @@ var tape = require("tape"),
 
 
 tape("inflection", function(assert) {
-    var inflector;
+    var enInflector = inflections("en");
 
-    inflector = inflections("en");
-
-    assert.equal(inflector instanceof Inflector, true, "should return inflector or create new one if not present");
+    assert.equal(enInflector instanceof Inflector, true, "should return en inflector or create new one if not present");
+    assert.equal(enInflector === inflections("en"), true, "should return same inflector");
     assert.end();
 });
 

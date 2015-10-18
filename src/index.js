@@ -31,8 +31,23 @@ module.exports = inflections;
 
 
 function inflections(locale) {
+    var inflector;
+
     locale = locale || defaultLocale;
-    return locales[locale] || (locales[locale] = Inflector.create());
+    inflector = locales[locale];
+
+    if (!inflector) {
+        inflector = Inflector.create();
+
+        defineProperty(locales, locale, {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: inflector
+        });
+    }
+
+    return inflector;
 }
 
 inflections.setDefaultLocale = function(locale) {
