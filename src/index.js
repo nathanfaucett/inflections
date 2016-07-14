@@ -1,5 +1,5 @@
-var Inflector = require("inflector"),
-    defineProperty = require("define_property");
+var Inflector = require("@nathanfaucett/inflector"),
+    defineProperty = require("@nathanfaucett/define_property");
 
 
 var locales = global.__INFLECTORS__,
